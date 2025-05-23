@@ -13,12 +13,18 @@ public class PollCreationUI : MonoBehaviour
     void Start()
     {
         if (startPollButton != null)
+        {
             startPollButton.onClick.AddListener(OnStartPollClicked);
+            startPollButton.onClick.AddListener(UIManager.Instance.PlayButtonClickSound);
+        }
         else
             Debug.LogError("Start Poll Button is not assigned in PollCreationUI.");
 
         if (backButton != null)
+        {
             backButton.onClick.AddListener(OnBackClicked);
+            backButton.onClick.AddListener(UIManager.Instance.PlayButtonClickSound);
+        }
         else
             Debug.LogError("Back Button is not assigned in PollCreationUI.");
     }

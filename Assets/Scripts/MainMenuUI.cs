@@ -3,19 +3,26 @@ using UnityEngine.UI; // 기본 UI 버튼 사용 시
 
 public class MainMenuUI : MonoBehaviour
 {
-    [Header("Buttons")] public Button createPollButton;
+    [Header("Buttons")] 
+    public Button createPollButton;
     public Button joinPollButton;
 
     void Start()
     {
         // 버튼이 null이 아닌지 확인 후 리스너 추가
         if (createPollButton != null)
+        {
             createPollButton.onClick.AddListener(OnCreatePollClicked);
+            createPollButton.onClick.AddListener(UIManager.Instance.PlayButtonClickSound);
+        }
         else
             Debug.LogError("Create Poll Button is not assigned in MainMenuUI.");
 
         if (joinPollButton != null)
+        {
             joinPollButton.onClick.AddListener(OnJoinPollClicked);
+            joinPollButton.onClick.AddListener(UIManager.Instance.PlayButtonClickSound);
+        }
         else
             Debug.LogError("Join Poll Button is not assigned in MainMenuUI.");
     }
